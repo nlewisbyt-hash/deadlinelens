@@ -6,7 +6,7 @@
 获取 QNX 8.0（Everywhere，非商用）：https://www.qnx.com/getqnx  
 中国站：https://china.qnx.com/products/everywhere/
 
-赛道：**Developer Tooling & Host Tools**。Devpost 账号已报名（Joined）。**尚未正式提交（Submit）。**
+赛道：**Developer Tooling & Host Tools**。已于 2026-11-13 正式提交，作品页：https://devpost.com/software/deadlinelens-71i4mn 。公开仓库：https://github.com/nlewisbyt-hash/deadlinelens 。演示视频：https://youtu.be/9y6AANeVNXg 。截止前仍可修改。
 
 非商用 QNX SDP 8.0 已通过官方 Software Center 安装。许可密钥只放在本机私有笔记里，不要写进公开 README 或提交材料。
 
@@ -20,6 +20,8 @@ DeadlineLens is a Linux host tool that finds missed deadlines, period jitter, an
 
 **Start here:**
 
+- Submission: https://devpost.com/software/deadlinelens-71i4mn
+- Demo video: https://youtu.be/9y6AANeVNXg
 - `traces/qnx-deadlinelens-trace.json` — capture from QNX 8.0 (`source=qnx-periodic-task (captured on QNX)`, `qnx_version=QNX 8.0.0`, `target=qemu`, `toolchain=qcc -Vgcc_ntox86_64`)
 - `traces/qnx-report.html` and `traces/qnx-analysis.json` — host report (`evidence=qnx_contest_evidence`); one missed deadline is control job 3 (tardiness ≈ 3.08 ms)
 - `notes/build-run-note.md` — build and run record (QNX version, QEMU target, toolchain, commands). QNX SDP 8.0 was installed with the official Software Center and the official `mkqnximage` tool.
@@ -84,10 +86,10 @@ make -C target/qnx
 - `target/posix_fallback/`：仅供开发主机工具
 - `codelab/outline.md`：教程提纲
 - `notes/build-run-note.md`：本次真实运行的 build/run 说明（QNX 版本、QEMU、工具链、命令）
-- `notes/devpost-submission-draft.md`：可粘贴到 Devpost 的英文提交草稿
+- `notes/devpost-submission-draft.md`：已用于正式提交的英文文案与核对记录
 - `notes/demo-video-script.md`：不超过 3 分钟的英文预录演示脚本与分镜
-- `notes/deadlinelens-demo-walkthrough.mp4`：本地无声走查视频（未发布）
-- `notes/devpost-thumbnail.png`：3:2 缩略图（本地生成，未上传）
+- `notes/deadlinelens-demo-walkthrough.mp4`：本地无声走查视频（已发布到 YouTube：https://youtu.be/9y6AANeVNXg ；该 mp4 本身不进公开仓库）
+- `notes/devpost-thumbnail.png`：3:2 缩略图（已作为 Devpost 作品缩略图上传）
 - `notes/sdp-install-2026-11-12-software-center.md`、`notes/sdp-install-blocker-2026-11-12.md`：安装过程备忘（历史）
 - `tests/test_deadlinelens.py`
 
@@ -99,4 +101,4 @@ make -C target/qnx
 
 SDP 8.0 与 `qcc` 已安装。目标演示已用 `qcc -Vgcc_ntox86_64` 编译，并在官方 `mkqnximage` 构建的 QNX 8.0 QEMU 客户机上运行，写出 `traces/qnx-deadlinelens-trace.json`（`source=qnx-periodic-task (captured on QNX)`，`qnx_version=QNX 8.0.0`，`target=qemu`，`toolchain=qcc -Vgcc_ntox86_64`）。主机 CLI 在 `--require-qnx-evidence` 下接受该踪迹（退出码 0），拒绝全部 `sample_*.json`（退出码 2）。
 
-仓库根目录已有 MIT `LICENSE`（Copyright (c) 2026 Baoquan Yang）。**仍需你本人决定后再做的：** 创建公开 GitHub/GitLab/Bitbucket 仓库并把本项目（含根目录 LICENSE）放上去、把不超过 3 分钟的预录演示视频公开到 YouTube、在 Devpost 上正式 Submit。正式提交材料须为英语或另附英译。未执行正式提交，也未创建或推送公开仓库、未发布 YouTube 视频。
+仓库根目录已有 MIT `LICENSE`（Copyright (c) 2026 Baoquan Yang），GitHub 已识别为 MIT。公开仓库：https://github.com/nlewisbyt-hash/deadlinelens 。演示视频（公开，约 2 分 21 秒）：https://youtu.be/9y6AANeVNXg 。Devpost 已于 2026-11-13 正式提交：https://devpost.com/software/deadlinelens-71i4mn （赛道 Developer Tooling & Host Tools）。提交材料为英语。截止前仍可修改。

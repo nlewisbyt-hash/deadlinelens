@@ -7,7 +7,7 @@ Official sources re-read on 2026-11-13, Asia/Shanghai:
 
 This draft does not include license keys, passwords, or private host paths. Build and run details that are safe to publish are in `notes/build-run-note.md`. QNX SDP 8.0 was installed with the official Software Center; the official capture image was built with official `mkqnximage`.
 
-**Do not formal Submit until the public repository and public YouTube video are ready.** This file is a local draft only.
+Formal Devpost Submit was completed on 2026-11-13 (Asia/Shanghai). Live project: https://devpost.com/software/deadlinelens-71i4mn . This file keeps the submitted copy and the post-submit check.
 
 ---
 
@@ -27,7 +27,7 @@ A host tool that finds missed deadlines, jitter, and priority inversions in real
 
 ### Thumbnail / gallery image
 
-Use the 3:2 image at `notes/devpost-thumbnail.png` (generated locally; not yet uploaded). Devpost asks for JPG, PNG, or GIF, 5 MB max, 3:2 ratio preferred.
+The 3:2 image at `notes/devpost-thumbnail.png` was uploaded as the Devpost project thumbnail.
 
 ### Built with (stay at or under 25 tags)
 
@@ -133,7 +133,7 @@ Developer Tooling & Host Tools
 ### Public repository URL
 
 ```
-TODO — paste the public GitHub / GitLab / Bitbucket URL after you create and push the repo.
+https://github.com/nlewisbyt-hash/deadlinelens
 ```
 
 The repository must be public, must include the MIT `LICENSE` file at the root so Devpost can detect it in the About section, and must show that the project genuinely builds for or runs on QNX 8.0, not only that QNX is named in the README. Submitter / copyright holder: Baoquan Yang, 2026.
@@ -141,12 +141,10 @@ The repository must be public, must include the MIT `LICENSE` file at the root s
 ### Demo video (YouTube, public, under three minutes)
 
 ```
-TODO — paste the public YouTube URL after you upload.
+https://youtu.be/9y6AANeVNXg
 ```
 
-Leave blank until a public YouTube URL exists.
-
-A timed English script is in `notes/demo-video-script.md`. A local silent walkthrough (not published) is in `notes/deadlinelens-demo-walkthrough.mp4`. Official rules require a pre-recorded video under three minutes, showing the project working, uploaded to YouTube and made public, with a link on the form. No third-party trademarks or copyrighted music. Judges are not required to watch beyond three minutes. A pre-recorded demo is allowed; an on-camera defense is not required.
+A timed English script is in `notes/demo-video-script.md`. The public video is the local silent walkthrough, published at the URL above. Official rules require a pre-recorded video under three minutes, showing the project working, uploaded to YouTube and made public, with a link on the form. No third-party trademarks or copyrighted music. Judges are not required to watch beyond three minutes. A pre-recorded demo is allowed; an on-camera defense is not required.
 
 ### Build and run instructions
 
@@ -166,15 +164,20 @@ Individual (or the form equivalent). Copyright holder: Baoquan Yang, 2026.
 
 ---
 
-## Local checklist vs still needs you
+## Post-submit check (2026-11-13, Asia/Shanghai)
+
+Live software page: https://devpost.com/software/deadlinelens-71i4mn
+
+Devpost showed “Project submitted! Continue to edit your project until the hackathon deadline: December 15, 2026 at 02:00pm EST.” and “SUBMITTED TO / QNX Global Hackathon”. The submission manage page showed “SUBMITTED” and “5/5 steps done”.
 
 | Requirement | Status |
 | --- | --- |
-| English text description of what it does | Yes — this draft |
-| How the project uses / supports QNX, with file callouts | Yes — this draft + README “For judges” |
-| Build/run note with version, target, toolchain | Yes — `notes/build-run-note.md` |
+| English text description of what it does | Yes — on the live Devpost page |
+| How the project uses / supports QNX, with file callouts | Yes — live page + README “For judges” |
+| Build/run note with version, target, toolchain | Yes — `notes/build-run-note.md` (QNX 8.0.0, QEMU x86_64, `qcc -Vgcc_ntox86_64`) |
 | Real QNX 8.0 evidence (trace + HTML report) | Yes — `traces/qnx-*.json` / `traces/qnx-report.html` |
-| Open-source LICENSE at repo root (OSI-recognized MIT) | Yes — added locally; must appear at the root of the *public* repo |
-| Public GitHub / GitLab / Bitbucket repository | **Still needs you** |
-| ≤3 minute demo on public YouTube, link on the form | **Still needs you** (local script + silent walkthrough only) |
-| Formal Devpost Submit | **Still needs you** |
+| Open-source LICENSE at repo root (OSI-recognized MIT) | Yes — GitHub detects MIT on https://github.com/nlewisbyt-hash/deadlinelens |
+| Public GitHub / GitLab / Bitbucket repository | Yes — https://github.com/nlewisbyt-hash/deadlinelens |
+| ≤3 minute demo on public YouTube, link on the form | Yes — https://youtu.be/9y6AANeVNXg (Nikki Lewis, public, about 2:21) |
+| Category Developer Tooling & Host Tools | Yes — saved on the submitted form |
+| Formal Devpost Submit | Yes — https://devpost.com/software/deadlinelens-71i4mn |
