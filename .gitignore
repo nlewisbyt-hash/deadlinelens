@@ -1,0 +1,18 @@
+# Build and test artifacts
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Official Software Center installer and private install/license notes
+# (license keys and account details must never be published)
+installers/
+notes/sdp-license-2026-11-12.md
+notes/sdp-install-2026-11-12-software-center.md
+notes/sdp-install-blocker-2026-11-12.md
+
+# Recompiled QNX binary (sources in target/qnx/ are the public artifact)
+target/qnx/periodic_task
+
+# Local demo file; the official contest demo is the public YouTube upload
+notes/deadlinelens-demo-walkthrough.mp4

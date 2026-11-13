@@ -1,0 +1,209 @@
+{
+  "format": "deadlinelens-trace/v1",
+  "clock_hz": 1000000000,
+  "source": "hand-written sample (not captured on QNX; not contest evidence)",
+  "threads": [
+    {
+      "id": 1,
+      "name": "sensor",
+      "priority": 21,
+      "period_ns": 10000000,
+      "deadline_ns": 10000000
+    },
+    {
+      "id": 2,
+      "name": "control",
+      "priority": 15,
+      "period_ns": 10000000,
+      "deadline_ns": 10000000
+    }
+  ],
+  "events": [
+    {
+      "t_ns": 0,
+      "type": "release",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 0,
+      "type": "release",
+      "thread_id": 2,
+      "job": 1
+    },
+    {
+      "t_ns": 100000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 2000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 2100000,
+      "type": "start",
+      "thread_id": 2,
+      "job": 1
+    },
+    {
+      "t_ns": 5100000,
+      "type": "end",
+      "thread_id": 2,
+      "job": 1
+    },
+    {
+      "t_ns": 10000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 10000000,
+      "type": "release",
+      "thread_id": 2,
+      "job": 2
+    },
+    {
+      "t_ns": 10100000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 12000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 12100000,
+      "type": "start",
+      "thread_id": 2,
+      "job": 2
+    },
+    {
+      "t_ns": 15100000,
+      "type": "end",
+      "thread_id": 2,
+      "job": 2
+    },
+    {
+      "t_ns": 20000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 3
+    },
+    {
+      "t_ns": 20000000,
+      "type": "release",
+      "thread_id": 2,
+      "job": 3
+    },
+    {
+      "t_ns": 20100000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 3
+    },
+    {
+      "t_ns": 22000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 3
+    },
+    {
+      "t_ns": 22100000,
+      "type": "start",
+      "thread_id": 2,
+      "job": 3
+    },
+    {
+      "t_ns": 30000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 4
+    },
+    {
+      "t_ns": 30000000,
+      "type": "miss",
+      "thread_id": 2,
+      "job": 3
+    },
+    {
+      "t_ns": 30000000,
+      "type": "release",
+      "thread_id": 2,
+      "job": 4
+    },
+    {
+      "t_ns": 30100000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 4
+    },
+    {
+      "t_ns": 32000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 4
+    },
+    {
+      "t_ns": 34100000,
+      "type": "end",
+      "thread_id": 2,
+      "job": 3
+    },
+    {
+      "t_ns": 34100000,
+      "type": "start",
+      "thread_id": 2,
+      "job": 4
+    },
+    {
+      "t_ns": 37100000,
+      "type": "end",
+      "thread_id": 2,
+      "job": 4
+    },
+    {
+      "t_ns": 40000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 5
+    },
+    {
+      "t_ns": 40000000,
+      "type": "release",
+      "thread_id": 2,
+      "job": 5
+    },
+    {
+      "t_ns": 40100000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 5
+    },
+    {
+      "t_ns": 42000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 5
+    },
+    {
+      "t_ns": 42100000,
+      "type": "start",
+      "thread_id": 2,
+      "job": 5
+    },
+    {
+      "t_ns": 45100000,
+      "type": "end",
+      "thread_id": 2,
+      "job": 5
+    }
+  ]
+}

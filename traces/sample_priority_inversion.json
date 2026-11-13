@@ -1,0 +1,71 @@
+{
+  "format": "deadlinelens-trace/v1",
+  "clock_hz": 1000000000,
+  "source": "hand-written inversion sample (not captured on QNX; not contest evidence)",
+  "threads": [
+    {
+      "id": 1,
+      "name": "high",
+      "priority": 22,
+      "period_ns": 10000000,
+      "deadline_ns": 4000000
+    },
+    {
+      "id": 2,
+      "name": "low",
+      "priority": 10,
+      "period_ns": 20000000,
+      "deadline_ns": 20000000
+    }
+  ],
+  "events": [
+    {
+      "t_ns": 0,
+      "type": "release",
+      "thread_id": 2,
+      "job": 1
+    },
+    {
+      "t_ns": 100000,
+      "type": "start",
+      "thread_id": 2,
+      "job": 1
+    },
+    {
+      "t_ns": 1000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 2500000,
+      "type": "preempt",
+      "thread_id": 2,
+      "job": 1
+    },
+    {
+      "t_ns": 2500000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 3500000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 3600000,
+      "type": "start",
+      "thread_id": 2,
+      "job": 1
+    },
+    {
+      "t_ns": 8000000,
+      "type": "end",
+      "thread_id": 2,
+      "job": 1
+    }
+  ]
+}

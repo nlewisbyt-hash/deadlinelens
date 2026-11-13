@@ -1,0 +1,106 @@
+{
+  "format": "deadlinelens-trace/v1",
+  "clock_hz": 1000000000,
+  "source": "hand-written jitter sample (not captured on QNX; not contest evidence)",
+  "threads": [
+    {
+      "id": 1,
+      "name": "tick",
+      "priority": 20,
+      "period_ns": 10000000,
+      "deadline_ns": 10000000
+    }
+  ],
+  "events": [
+    {
+      "t_ns": 0,
+      "type": "release",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 200000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 2000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 10000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 10200000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 12000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 21500000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 3
+    },
+    {
+      "t_ns": 21700000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 3
+    },
+    {
+      "t_ns": 23500000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 3
+    },
+    {
+      "t_ns": 30000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 4
+    },
+    {
+      "t_ns": 30200000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 4
+    },
+    {
+      "t_ns": 32000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 4
+    },
+    {
+      "t_ns": 40000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 5
+    },
+    {
+      "t_ns": 40200000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 5
+    },
+    {
+      "t_ns": 42000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 5
+    }
+  ]
+}

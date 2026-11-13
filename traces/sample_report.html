@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>DeadlineLens report</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: "Segoe UI", system-ui, sans-serif; margin: 24px; color: #1a1a1a; max-width: 1080px; }
+  h1 { margin: 0 0 8px; font-size: 1.6rem; }
+  .meta, .legend, p, li { font-size: 14px; }
+  .meta { color: #444; margin-bottom: 16px; }
+  .kpis { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 20px; }
+  .kpi { border: 1px solid #ddd; border-radius: 8px; padding: 10px 14px; min-width: 120px; }
+  .kpi b { display: block; font-size: 1.3rem; }
+  .kpi.bad b { color: #c0392b; }
+  .legend span { display: inline-block; margin-right: 16px; }
+  .swatch { display: inline-block; width: 14px; height: 10px; margin-right: 4px; vertical-align: middle; }
+  .swatch.ok { background: #2980b9; }
+  .swatch.miss { background: #c0392b; }
+  .swatch.wait { background: #f7dc6f; }
+  .swatch.dl { border-left: 2px dashed #7f8c8d; height: 14px; width: 8px; }
+  .panel { margin: 20px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { border: 1px solid #e5e5e5; padding: 6px 8px; text-align: left; }
+  th { background: #f6f7f8; }
+  .note { color: #555; font-size: 13px; margin-top: 28px; }
+  svg { max-width: 100%; height: auto; border: 1px solid #eee; background: #fafbfc; }
+  .banner { border-radius: 8px; padding: 10px 14px; margin: 0 0 16px; font-size: 14px; }
+  .banner.not-evidence { background: #fdecea; border: 1px solid #e6b0aa; }
+  .banner.qnx-evidence { background: #eafaf1; border: 1px solid #82e0aa; }
+  .banner.unverified { background: #fef9e7; border: 1px solid #f9e79f; }
+  .banner b { display: block; margin-bottom: 4px; }
+  .prov { font-size: 13px; margin: 0 0 16px; }
+</style>
+<body>
+  <h1>DeadlineLens</h1>
+  <div class="meta">Source: traces/sample_missed_deadline.json</div>
+  <div class="banner not-evidence" data-evidence-kind="not_contest_evidence"><b>Not contest evidence</b>This trace is labeled as not contest evidence (hand-written sample or POSIX fallback). It cannot satisfy the official QNX 8.0 evidence requirement.</div>
+  <div class="prov"><h2>Provenance</h2><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>source</td><td>hand-written sample (not captured on QNX; not contest evidence)</td></tr><tr><td>qnx_version</td><td>—</td></tr><tr><td>target</td><td>—</td></tr><tr><td>toolchain</td><td>—</td></tr><tr><td>uname_sysname</td><td>—</td></tr><tr><td>sched_note</td><td>—</td></tr></tbody></table></div>
+  <div class="kpis">
+    <div class="kpi"><span>Jobs</span><b>10</b></div>
+    <div class="kpi bad"><span>Missed deadlines</span><b>1</b></div>
+    <div class="kpi"><span>Priority inversions</span><b>1</b></div>
+    <div class="kpi"><span>Max period jitter</span><b>0 ns</b></div>
+  </div>
+  <p class="legend">
+    <span><i class="swatch ok"></i>Finished before deadline</span>
+    <span><i class="swatch miss"></i>Finished at or after deadline</span>
+    <span><i class="swatch wait"></i>Release-to-start wait</span>
+    <span><i class="swatch dl"></i>Deadline tick (triangles mark releases)</span>
+  </p>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1030 194" width="1030" height="194" font-family="sans-serif"><line x1="110" y1="24" x2="1010" y2="24" stroke="#999"/><line x1="110" y1="20" x2="110" y2="28" stroke="#999"/><text x="110" y="16" font-size="10" text-anchor="middle" fill="#555">0 ns</text><line x1="290" y1="20" x2="290" y2="28" stroke="#999"/><text x="290" y="16" font-size="10" text-anchor="middle" fill="#555">9.020 ms</text><line x1="470" y1="20" x2="470" y2="28" stroke="#999"/><text x="470" y="16" font-size="10" text-anchor="middle" fill="#555">18.040 ms</text><line x1="650" y1="20" x2="650" y2="28" stroke="#999"/><text x="650" y="16" font-size="10" text-anchor="middle" fill="#555">27.060 ms</text><line x1="830" y1="20" x2="830" y2="28" stroke="#999"/><text x="830" y="16" font-size="10" text-anchor="middle" fill="#555">36.080 ms</text><line x1="1010" y1="20" x2="1010" y2="28" stroke="#999"/><text x="1010" y="16" font-size="10" text-anchor="middle" fill="#555">45.100 ms</text><text x="8" y="56" font-size="12">sensor p21</text><line x1="110" y1="60" x2="1010" y2="60" stroke="#eee"/><rect x="110" y="44" width="1" height="12" fill="#f7dc6f" opacity="0.85"><title>sensor job 1 wait 100.0 µs</title></rect><rect x="111" y="40" width="38" height="18" fill="#2980b9"><title>sensor job 1 · start=100.0 µs · end=2.000 ms · deadline=10.000 ms</title></rect><text x="113" y="53" font-size="9" fill="#fff">1</text><rect x="309" y="44" width="2" height="12" fill="#f7dc6f" opacity="0.85"><title>sensor job 2 wait 100.0 µs</title></rect><rect x="311" y="40" width="38" height="18" fill="#2980b9"><title>sensor job 2 · start=10.100 ms · end=12.000 ms · deadline=20.000 ms</title></rect><text x="313" y="53" font-size="9" fill="#fff">2</text><rect x="509" y="44" width="2" height="12" fill="#f7dc6f" opacity="0.85"><title>sensor job 3 wait 100.0 µs</title></rect><rect x="511" y="40" width="38" height="18" fill="#2980b9"><title>sensor job 3 · start=20.100 ms · end=22.000 ms · deadline=30.000 ms</title></rect><text x="513" y="53" font-size="9" fill="#fff">3</text><rect x="708" y="44" width="2" height="12" fill="#f7dc6f" opacity="0.85"><title>sensor job 4 wait 100.0 µs</title></rect><rect x="710" y="40" width="38" height="18" fill="#2980b9"><title>sensor job 4 · start=30.100 ms · end=32.000 ms · deadline=40.000 ms</title></rect><text x="712" y="53" font-size="9" fill="#fff">4</text><rect x="908" y="44" width="2" height="12" fill="#f7dc6f" opacity="0.85"><title>sensor job 5 wait 100.0 µs</title></rect><rect x="910" y="40" width="38" height="18" fill="#2980b9"><title>sensor job 5 · start=40.100 ms · end=42.000 ms · deadline=50.000 ms</title></rect><text x="912" y="53" font-size="9" fill="#fff">5</text><polygon points="110,62 107,68 113,68" fill="#7f8c8d"><title>release job 1</title></polygon><line x1="309" y1="36" x2="309" y2="62" stroke="#7f8c8d" stroke-dasharray="2,2"/><polygon points="309,62 306,68 312,68" fill="#7f8c8d"><title>release job 2</title></polygon><line x1="509" y1="36" x2="509" y2="62" stroke="#7f8c8d" stroke-dasharray="2,2"/><polygon points="509,62 506,68 512,68" fill="#7f8c8d"><title>release job 3</title></polygon><line x1="708" y1="36" x2="708" y2="62" stroke="#7f8c8d" stroke-dasharray="2,2"/><polygon points="708,62 705,68 711,68" fill="#7f8c8d"><title>release job 4</title></polygon><line x1="908" y1="36" x2="908" y2="62" stroke="#7f8c8d" stroke-dasharray="2,2"/><polygon points="908,62 905,68 911,68" fill="#7f8c8d"><title>release job 5</title></polygon><line x1="1107" y1="36" x2="1107" y2="62" stroke="#7f8c8d" stroke-dasharray="2,2"/><text x="8" y="108" font-size="12">control p15</text><line x1="110" y1="112" x2="1010" y2="112" stroke="#eee"/><rect x="110" y="96" width="41" height="12" fill="#f7dc6f" opacity="0.85"><title>control job 1 wait 2.100 ms</title></rect><rect x="151" y="92" width="60" height="18" fill="#2980b9"><title>control job 1 · start=2.100 ms · end=5.100 ms · deadline=10.000 ms</title></rect><text x="153" y="105" font-size="9" fill="#fff">1</text><rect x="309" y="96" width="42" height="12" fill="#f7dc6f" opacity="0.85"><title>control job 2 wait 2.100 ms</title></rect><rect x="351" y="92" width="60" height="18" fill="#2980b9"><title>control job 2 · start=12.100 ms · end=15.100 ms · deadline=20.000 ms</title></rect><text x="353" y="105" font-size="9" fill="#fff">2</text><rect x="509" y="96" width="42" height="12" fill="#f7dc6f" opacity="0.85"><title>control job 3 wait 2.100 ms</title></rect><rect x="551" y="92" width="239" height="18" fill="#c0392b"><title>control job 3 · start=22.100 ms · end=34.100 ms · deadline=30.000 ms · tardiness=4.100 ms</title></rect><text x="553" y="105" font-size="9" fill="#fff">3</text><text x="793" y="105" font-size="9" fill="#c0392b">miss</text><rect x="708" y="96" width="82" height="12" fill="#f7dc6f" opacity="0.85"><title>control job 4 wait 4.100 ms</title></rect><rect x="790" y="92" width="60" height="18" fill="#2980b9"><title>control job 4 · start=34.100 ms · end=37.100 ms · deadline=40.000 ms</title></rect><text x="792" y="105" font-size="9" fill="#fff">4</text><rect x="908" y="96" width="42" height="12" fill="#f7dc6f" opacity="0.85"><title>control job 5 wait 2.100 ms</title></rect><rect x="950" y="92" width="60" height="18" fill="#2980b9"><title>control job 5 · start=42.100 ms · end=45.100 ms · deadline=50.000 ms</title></rect><text x="952" y="105" font-size="9" fill="#fff">5</text><polygon points="110,114 107,120 113,120" fill="#7f8c8d"><title>release job 1</title></polygon><line x1="309" y1="88" x2="309" y2="114" stroke="#7f8c8d" stroke-dasharray="2,2"/><polygon points="309,114 306,120 312,120" fill="#7f8c8d"><title>release job 2</title></polygon><line x1="509" y1="88" x2="509" y2="114" stroke="#7f8c8d" stroke-dasharray="2,2"/><polygon points="509,114 506,120 512,120" fill="#7f8c8d"><title>release job 3</title></polygon><line x1="708" y1="88" x2="708" y2="114" stroke="#7f8c8d" stroke-dasharray="2,2"/><polygon points="708,114 705,120 711,120" fill="#7f8c8d"><title>release job 4</title></polygon><line x1="908" y1="88" x2="908" y2="114" stroke="#7f8c8d" stroke-dasharray="2,2"/><polygon points="908,114 905,120 911,120" fill="#7f8c8d"><title>release job 5</title></polygon><line x1="1107" y1="88" x2="1107" y2="114" stroke="#7f8c8d" stroke-dasharray="2,2"/></svg>
+  <div class="panel">
+    <h2>Missed deadlines</h2>
+    <p>A miss is inferred when a job ends at or after its absolute deadline (release + relative deadline). Tardiness is how late it finished; slack is how early (negative slack equals tardiness). Exact-boundary jobs (finish == deadline) count as a miss.</p>
+    <table><thead><tr><th>Thread</th><th>Job</th><th>Response</th><th>Relative deadline</th><th>Tardiness</th><th>Slack</th><th>Logged miss</th><th>Inferred miss</th><th>Exact boundary</th></tr></thead><tbody><tr><td>control</td><td>3</td><td>14.100 ms</td><td>10.000 ms</td><td>4.100 ms</td><td>-4.100 ms</td><td>yes</td><td>yes</td><td>no</td></tr></tbody></table>
+  </div>
+  <div class="panel">
+    <h2>Response times</h2>
+    <p>Host-side summary of response (end − release), remaining slack, start latency, and crude utilization (sum of execution over the trace span). This does not require a QNX SDP on this machine.</p>
+    <table><thead><tr><th>Thread</th><th>Prio</th><th>Jobs</th><th>Misses</th><th>Min resp</th><th>Mean resp</th><th>Max resp</th><th>Min slack</th><th>Max start latency</th><th>Utilization</th></tr></thead><tbody><tr><td>sensor</td><td>21</td><td>5</td><td>0</td><td>2.000 ms</td><td>2.000 ms</td><td>2.000 ms</td><td>8.000 ms</td><td>100.0 µs</td><td>21.1%</td></tr><tr><td>control</td><td>15</td><td>5</td><td>1</td><td>5.100 ms</td><td>7.300 ms</td><td>14.100 ms</td><td>-4.100 ms</td><td>4.100 ms</td><td>53.2%</td></tr></tbody></table>
+  </div>
+  <div class="panel">
+    <h2>Period jitter</h2>
+    <p>Absolute error between consecutive release intervals and the configured period. This is host-side analysis of the JSON trace; it does not require a QNX SDP on this machine.</p>
+    <table><thead><tr><th>Thread</th><th>Period</th><th>Releases</th><th>Max |error|</th><th>Mean |error|</th></tr></thead><tbody><tr><td>sensor</td><td>10.000 ms</td><td>5</td><td>0 ns</td><td>0 ns</td></tr><tr><td>control</td><td>10.000 ms</td><td>5</td><td>0 ns</td><td>0 ns</td></tr></tbody></table>
+  </div>
+  <div class="panel">
+    <h2>Priority inversions</h2>
+    <p>A lower-priority thread was running while a higher-priority thread was ready (approximate, from application-level events, including optional preempt/ready markers).</p>
+    <table><thead><tr><th>Time</th><th>Running</th><th>Prio</th><th>Waiting</th><th>Prio</th></tr></thead><tbody><tr><td>30.000 ms</td><td>control</td><td>15</td><td>sensor</td><td>21</td></tr></tbody></table>
+  </div>
+  <p class="note">
+    Official contest evidence must later include a trace captured on QNX 8.0.
+    QEMU is accepted by the official rules (https://qnx.devpost.com/rules).
+    A POSIX fallback emitter exists only to develop this host report and is
+    not contest evidence. This report does not assume an SDP is installed.
+  </p>
+</body>
+</html>

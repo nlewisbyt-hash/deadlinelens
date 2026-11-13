@@ -1,0 +1,11 @@
+# Example mkifs / image snippet for the DeadlineLens periodic_task binary.
+# This is an example only. The official contest capture used official
+# mkqnximage (see notes/build-run-note.md), not this file.
+
+# Place the prebuilt binary (qcc -Vgcc_ntox86_64) into the guest data
+# partition, then run it after the image boots.
+
+[/data/home/root/periodic_task]
+UID=0 GID=0 PERMS=0755
+# host path to the compiled binary, adjusted to your layout:
+# periodic_task=target/qnx/periodic_task

@@ -1,0 +1,81 @@
+{
+  "job_count": 10,
+  "miss_count": 1,
+  "evidence": {
+    "kind": "not_contest_evidence",
+    "is_contest_evidence": false,
+    "source": "hand-written sample (not captured on QNX; not contest evidence)",
+    "qnx_version": "",
+    "target": "",
+    "toolchain": "",
+    "uname_sysname": "",
+    "sched_note": "",
+    "summary": "This trace is labeled as not contest evidence (hand-written sample or POSIX fallback). It cannot satisfy the official QNX 8.0 evidence requirement."
+  },
+  "span_ns": 45100000,
+  "misses": [
+    {
+      "thread": "control",
+      "job": 3,
+      "response_ns": 14100000,
+      "tardiness_ns": 4100000,
+      "slack_ns": -4100000,
+      "exact_boundary": false,
+      "inferred_miss": true,
+      "logged_miss": true
+    }
+  ],
+  "jitter": [
+    {
+      "thread": "sensor",
+      "period_ns": 10000000,
+      "max_abs_error_ns": 0,
+      "mean_abs_error_ns": 0.0
+    },
+    {
+      "thread": "control",
+      "period_ns": 10000000,
+      "max_abs_error_ns": 0,
+      "mean_abs_error_ns": 0.0
+    }
+  ],
+  "response_stats": [
+    {
+      "thread_id": 1,
+      "thread": "sensor",
+      "priority": 21,
+      "job_count": 5,
+      "miss_count": 0,
+      "min_response_ns": 2000000,
+      "max_response_ns": 2000000,
+      "mean_response_ns": 2000000.0,
+      "min_slack_ns": 8000000,
+      "max_start_latency_ns": 100000,
+      "exec_sum_ns": 9500000,
+      "utilization": 0.2106430155210643
+    },
+    {
+      "thread_id": 2,
+      "thread": "control",
+      "priority": 15,
+      "job_count": 5,
+      "miss_count": 1,
+      "min_response_ns": 5100000,
+      "max_response_ns": 14100000,
+      "mean_response_ns": 7300000.0,
+      "min_slack_ns": -4100000,
+      "max_start_latency_ns": 4100000,
+      "exec_sum_ns": 24000000,
+      "utilization": 0.532150776053215
+    }
+  ],
+  "priority_inversions": [
+    {
+      "t_ns": 30000000,
+      "running": "control",
+      "waiting": "sensor",
+      "running_priority": 15,
+      "waiting_priority": 21
+    }
+  ]
+}

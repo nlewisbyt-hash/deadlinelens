@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>DeadlineLens report</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: "Segoe UI", system-ui, sans-serif; margin: 24px; color: #1a1a1a; max-width: 1080px; }
+  h1 { margin: 0 0 8px; font-size: 1.6rem; }
+  .meta, .legend, p, li { font-size: 14px; }
+  .meta { color: #444; margin-bottom: 16px; }
+  .kpis { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 20px; }
+  .kpi { border: 1px solid #ddd; border-radius: 8px; padding: 10px 14px; min-width: 120px; }
+  .kpi b { display: block; font-size: 1.3rem; }
+  .kpi.bad b { color: #c0392b; }
+  .legend span { display: inline-block; margin-right: 16px; }
+  .swatch { display: inline-block; width: 14px; height: 10px; margin-right: 4px; vertical-align: middle; }
+  .swatch.ok { background: #2980b9; }
+  .swatch.miss { background: #c0392b; }
+  .swatch.wait { background: #f7dc6f; }
+  .swatch.dl { border-left: 2px dashed #7f8c8d; height: 14px; width: 8px; }
+  .panel { margin: 20px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { border: 1px solid #e5e5e5; padding: 6px 8px; text-align: left; }
+  th { background: #f6f7f8; }
+  .note { color: #555; font-size: 13px; margin-top: 28px; }
+  svg { max-width: 100%; height: auto; border: 1px solid #eee; background: #fafbfc; }
+  .banner { border-radius: 8px; padding: 10px 14px; margin: 0 0 16px; font-size: 14px; }
+  .banner.not-evidence { background: #fdecea; border: 1px solid #e6b0aa; }
+  .banner.qnx-evidence { background: #eafaf1; border: 1px solid #82e0aa; }
+  .banner.unverified { background: #fef9e7; border: 1px solid #f9e79f; }
+  .banner b { display: block; margin-bottom: 4px; }
+  .prov { font-size: 13px; margin: 0 0 16px; }
+</style>
+<body>
+  <h1>DeadlineLens</h1>
+  <div class="meta">Source: {{SOURCE}}</div>
+  {{EVIDENCE_BANNER}}
+  {{PROVENANCE_TABLE}}
+  <div class="kpis">
+    <div class="kpi"><span>Jobs</span><b>{{JOB_COUNT}}</b></div>
+    <div class="kpi {{MISS_CLASS}}"><span>Missed deadlines</span><b>{{MISS_COUNT}}</b></div>
+    <div class="kpi"><span>Priority inversions</span><b>{{INV_COUNT}}</b></div>
+    <div class="kpi"><span>Max period jitter</span><b>{{MAX_JITTER}}</b></div>
+  </div>
+  <p class="legend">
+    <span><i class="swatch ok"></i>Finished before deadline</span>
+    <span><i class="swatch miss"></i>Finished at or after deadline</span>
+    <span><i class="swatch wait"></i>Release-to-start wait</span>
+    <span><i class="swatch dl"></i>Deadline tick (triangles mark releases)</span>
+  </p>
+  {{SVG}}
+  <div class="panel">
+    <h2>Missed deadlines</h2>
+    <p>A miss is inferred when a job ends at or after its absolute deadline (release + relative deadline). Tardiness is how late it finished; slack is how early (negative slack equals tardiness). Exact-boundary jobs (finish == deadline) count as a miss.</p>
+    {{MISS_TABLE}}
+  </div>
+  <div class="panel">
+    <h2>Response times</h2>
+    <p>Host-side summary of response (end − release), remaining slack, start latency, and crude utilization (sum of execution over the trace span). This does not require a QNX SDP on this machine.</p>
+    {{RESP_TABLE}}
+  </div>
+  <div class="panel">
+    <h2>Period jitter</h2>
+    <p>Absolute error between consecutive release intervals and the configured period. This is host-side analysis of the JSON trace; it does not require a QNX SDP on this machine.</p>
+    {{JITTER_TABLE}}
+  </div>
+  <div class="panel">
+    <h2>Priority inversions</h2>
+    <p>A lower-priority thread was running while a higher-priority thread was ready (approximate, from application-level events, including optional preempt/ready markers).</p>
+    {{INV_TABLE}}
+  </div>
+  <p class="note">
+    {{FOOTER_NOTE}}
+  </p>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "format": "deadlinelens-trace/v1",
+  "clock_hz": 1000000000,
+  "source": "hand-written exact-boundary sample (not captured on QNX; not contest evidence)",
+  "threads": [
+    {
+      "id": 1,
+      "name": "worker",
+      "priority": 18,
+      "period_ns": 8000000,
+      "deadline_ns": 5000000
+    }
+  ],
+  "events": [
+    {
+      "t_ns": 0,
+      "type": "release",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 100000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 2000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 1
+    },
+    {
+      "t_ns": 8000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 8100000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 13000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 13000000,
+      "type": "miss",
+      "thread_id": 1,
+      "job": 2
+    },
+    {
+      "t_ns": 16000000,
+      "type": "release",
+      "thread_id": 1,
+      "job": 3
+    },
+    {
+      "t_ns": 16100000,
+      "type": "start",
+      "thread_id": 1,
+      "job": 3
+    },
+    {
+      "t_ns": 18000000,
+      "type": "end",
+      "thread_id": 1,
+      "job": 3
+    }
+  ]
+}

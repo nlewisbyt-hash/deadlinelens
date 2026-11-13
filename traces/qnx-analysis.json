@@ -1,0 +1,102 @@
+{
+  "job_count": 10,
+  "miss_count": 1,
+  "evidence": {
+    "kind": "qnx_contest_evidence",
+    "is_contest_evidence": true,
+    "source": "qnx-periodic-task (captured on QNX)",
+    "qnx_version": "QNX 8.0.0",
+    "target": "qemu",
+    "toolchain": "qcc -Vgcc_ntox86_64",
+    "uname_sysname": "QNX",
+    "sched_note": "SCHED_FIFO requested for sensor and control threads.",
+    "summary": "Trace metadata identifies a QNX capture with version, target, and toolchain. Keep the JSON, the QEMU or hardware run record, and the build/run note together as official evidence."
+  },
+  "span_ns": 43901892,
+  "misses": [
+    {
+      "thread": "control",
+      "job": 3,
+      "response_ns": 13079687,
+      "tardiness_ns": 3079687,
+      "slack_ns": -3079687,
+      "exact_boundary": false,
+      "inferred_miss": true,
+      "logged_miss": true
+    }
+  ],
+  "jitter": [
+    {
+      "thread": "sensor",
+      "period_ns": 10000000,
+      "max_abs_error_ns": 0,
+      "mean_abs_error_ns": 0.0
+    },
+    {
+      "thread": "control",
+      "period_ns": 10000000,
+      "max_abs_error_ns": 0,
+      "mean_abs_error_ns": 0.0
+    }
+  ],
+  "response_stats": [
+    {
+      "thread_id": 1,
+      "thread": "sensor",
+      "priority": 21,
+      "job_count": 5,
+      "miss_count": 0,
+      "min_response_ns": 2864083,
+      "max_response_ns": 3215926,
+      "mean_response_ns": 2998531.8,
+      "min_slack_ns": 6784074,
+      "max_start_latency_ns": 1092443,
+      "exec_sum_ns": 10186864,
+      "utilization": 0.23203701562565915
+    },
+    {
+      "thread_id": 2,
+      "thread": "control",
+      "priority": 15,
+      "job_count": 5,
+      "miss_count": 1,
+      "min_response_ns": 3901892,
+      "max_response_ns": 13079687,
+      "mean_response_ns": 6285315.2,
+      "min_slack_ns": -3079687,
+      "max_start_latency_ns": 3339703,
+      "exec_sum_ns": 24177472,
+      "utilization": 0.5507159463651361
+    }
+  ],
+  "priority_inversions": [
+    {
+      "t_ns": 45551375376,
+      "running": "control",
+      "waiting": "sensor",
+      "running_priority": 15,
+      "waiting_priority": 21
+    },
+    {
+      "t_ns": 45561195830,
+      "running": "control",
+      "waiting": "sensor",
+      "running_priority": 15,
+      "waiting_priority": 21
+    },
+    {
+      "t_ns": 45571322636,
+      "running": "control",
+      "waiting": "sensor",
+      "running_priority": 15,
+      "waiting_priority": 21
+    },
+    {
+      "t_ns": 45591189443,
+      "running": "control",
+      "waiting": "sensor",
+      "running_priority": 15,
+      "waiting_priority": 21
+    }
+  ]
+}
